@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Upload</title>
+</head>
+<body>
+
+        <img id="myimg" src="" alt="" width="200px">
+        <br>
+        <input type="file" name="my_file" id="my_file">
+        
+        
+        <script>
+            const myimg = document.querySelector('#myimg');
+            const my_file = document.querySelector('#my_file');
+        
+            my_file.addEventListener('change', event=>{
+               //console.log(event.target);
+                const fd = new FormData();
+                
+        
+                fd.append('my_file', my_file.files[0]);
+        
+                fetch('0313-04-upload_ajax.php', {
+                    method: 'POST',
+                    body: fd
+                })
+                    .then(response=>response.json())
+                    .then(obj=>{
+                        console.log(obj);
+                        myimg.setAttribute('src', 'upload/' +obj.filename);
+                    });
+            });
+        
+        
+        
+        </script>
+
+</body>
+</html>

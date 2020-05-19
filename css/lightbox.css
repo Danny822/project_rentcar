@@ -1,0 +1,9 @@
+.lightbox_insert{
+    z-index:99; position: fixed; left:35%; top:25%; width:600px;    
+}
+.lightbox{
+    display: none;
+}
+.lightclose{
+    width:100%; transition: .5s; height: 100vh; opacity: 0; background-color: rgba(0, 0,0,.7); z-index: 90; overflow: hidden; position: fixed; left:0; top:0;
+}
